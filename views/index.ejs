@@ -4,10 +4,20 @@
 
 <head>
   <title>Earnings Calculator</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-gv0oNvwnqzF6ULI9TVsSmnULNb3zasNysvWwfT/s4l8k5I+g6oFz9dye0wg3rQ2Q" crossorigin="anonymous">
 </head>
 
 <body>
+  <% include ./partials/_navbar.ejs %>
+
   <h1>Hello World</h1>
+  <form>
+    <input type="number" placeholder="Wage" value="wage">
+    <input type="number" placeholder="Hours" value="hours">
+    <input type="submit" value="Calculate" id="calculate-submit">
+  </form>
+
+
 
 </body>
 <% include ./partials/_scripts.ejs %>
