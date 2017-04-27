@@ -20,8 +20,6 @@ const MAILGUN_EMAIL = process.env.MAILGUN_EMAIL_SERVER;
 const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY;
 const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN;
 
-// var api_key = process.env.MAILGUN_API_KEY;
-// var domain = process.env.MAILGUN_DOMAIN;
 var mailgun = require('mailgun-js')({apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN});
 var mailTemplate = require("./public/email/emailTemplate.js");
 
@@ -30,7 +28,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  let results = req.body.results;
 
   var data = {
     from: `Wage Calculator <${MAILGUN_EMAIL}>`,
@@ -40,8 +37,12 @@ app.post('/', (req, res) => {
   };
 
   mailgun.messages().send(data, function(error, body) {
-    console.log('error', error);
-    console.log('body', body);
+    if (error) {
+      console.log('error', error);
+    }
+    if (body) {
+      console.log('body', body);
+    }
     res.render('index');
   });
 });

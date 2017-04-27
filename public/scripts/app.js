@@ -21,8 +21,8 @@ $(document).ready(function() {
     }
 
     if ($wage && $hours) {
-      $('.wage-alert').slideUp(500);
-      $('.hours-alert').slideUp(500);
+      // $('.wage-alert').slideUp(500);
+      // $('.hours-alert').slideUp(500);
 
 
       $weekRow.find(".hours").text($hours);

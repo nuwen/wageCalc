@@ -48,7 +48,7 @@ $(document).ready(function() {
           hours: $yearlyHours,
           earnings: $yearlyEarnings
         }
-      }
+      };
 
       $.ajax({
         method: 'POST',
@@ -57,7 +57,7 @@ $(document).ready(function() {
           email: $email,
           results: results
         }
-      })
+      });
 
       $(".modal-dialog").fadeToggle("slow", "linear")
       .delay(500).fadeToggle("slow", "linear");
