@@ -58,7 +58,9 @@ $(document).ready(function() {
           results: results
         }
       })
-      alert($('#email-input').val());
+
+      $(".modal-dialog").fadeToggle("slow", "linear")
+      .delay(500).fadeToggle("slow", "linear");
       $('#email-input').val('');
     }
   });

@@ -11,6 +11,7 @@
 
 <body style="padding-left:10%; padding-right:10%">
   <% include ./partials/_navbar.ejs %>
+  <% include ./partials/_emailsuccess.ejs %>
 
     <div class="form-container panel panel-default">
       <div class="panel-heading">Your Info</div>
@@ -28,11 +29,11 @@
     </div>
 
     <div class="alert alert-warning alert-dismissible wage-alert" role="alert">
-      <strong>Warning!</strong> Enter your <strong>wage</strong>!.
+      <strong>Warning!</strong> Enter your <strong>wage</strong>! (or maybe its over $40?).
     </div>
 
     <div class="alert alert-warning alert-dismissible hours-alert" role="alert">
-      <strong>Warning!</strong> Enter your <strong>weekly hours</strong>!.
+      <strong>Warning!</strong> Enter your <strong>weekly hours</strong>! (or maybe its over 80 hours?).
     </div>
 
     <div class="results-container panel panel-default">
@@ -70,7 +71,6 @@
             <input type="email" placeholder="Your E-mail" id="email-input" class="form-control">
             <span class="input-group-btn">
           <button id="email-submit" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Email Results</button>
-          <button id="email-success" class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i> Email Sent!  </button>
         </span>
           </div>
         </form>
