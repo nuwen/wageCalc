@@ -14,10 +14,11 @@ $(document).ready(function() {
     let $yearRow = $(".yearlyTR");
 
     if (!$wage) {
-      alert("Please Enter a valid Wage");
+      $('.wage-alert').slideToggle(500);
+      // alert("Please Enter a valid Wage");
     }
     if (!$hours) {
-      alert("Please Enter a valid number of Hours");
+      $('.hours-alert').slideToggle(500);
     }
 
     if ($wage && $hours) {
@@ -32,6 +33,10 @@ $(document).ready(function() {
     }
   });
 
+  $('div.alert').on('click', function(){
+    $(this).slideToggle(500);
+  });
+
   $('#email-submit').on('click', function(event) {
     event.preventDefault();
 
@@ -40,11 +45,11 @@ $(document).ready(function() {
     let $hours = $('#hours-input').val();
 
     if (!$email){
-      alert('Enter an email first!');
+      $('.email-alert').slideToggle(500);
     }
 
     if (!$wage || !$hours){
-      alert('Fill in your information first!');
+      // alert('Fill in your information first!');
     }
 
     if ($email && ($wage && $hours)) {

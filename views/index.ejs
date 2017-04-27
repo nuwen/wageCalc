@@ -23,8 +23,18 @@
           <label>Hours Worked Per Week</label>
           <input type="number" placeholder="0" id="hours-input" class="form-control" min="0" step="0.00">
         </div>
-        <button id="calculate-submit" class="btn btn-default"><i class="fa fa-calculator" aria-hidden="true"></i>  Calculate</button>
+        <button id="calculate-submit" class="btn btn-success"><i class="fa fa-calculator" aria-hidden="true"></i>  Calculate</button>
       </form>
+    </div>
+
+    <div class="alert alert-warning alert-dismissible wage-alert" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> Enter your <strong>wage</strong>!.
+    </div>
+
+    <div class="alert alert-warning alert-dismissible hours-alert" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> Enter your <strong>weekly hours</strong>!.
     </div>
 
     <div class="results-container panel panel-default">
@@ -61,11 +71,15 @@
           <div class="input-group">
             <input type="email" placeholder="Your E-mail" id="email-input" class="form-control">
             <span class="input-group-btn">
-          <button id="email-submit" class="btn btn-default"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Email Results</button>
+          <button id="email-submit" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Email Results</button>
         </span>
           </div>
         </form>
       </div>
+    </div>
+    <div class="alert alert-warning alert-dismissible email-alert" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> Enter your <strong>E-Mail</strong>!.
     </div>
 
 

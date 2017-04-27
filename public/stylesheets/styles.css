@@ -14,3 +14,7 @@ td.earnings{
 #calculate-submit{
   float:right;
 }
+
+div.alert{
+  display:none;
+}
