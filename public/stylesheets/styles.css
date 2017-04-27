@@ -1,6 +1,5 @@
 th{
   text-align: right;
-  text-align: c
 }
 
 td.hours{
@@ -20,5 +19,5 @@ div.alert{
   cursor: pointer;
 }
 div.alert:hover{
-  opacity: .9;
+  opacity: .8;
 }

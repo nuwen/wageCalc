@@ -17,57 +17,26 @@ app.listen(PORT, () => {
 });
 
 const MAILGUN_EMAIL = process.env.MAILGUN_EMAIL_SERVER;
-const TEST_EMAIL = process.env.TEST_EMAIL;
+const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY;
+const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN;
 
-var api_key = process.env.MAILGUN_API_KEY;
-var domain = process.env.MAILGUN_DOMAIN;
-var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain})
-
+// var api_key = process.env.MAILGUN_API_KEY;
+// var domain = process.env.MAILGUN_DOMAIN;
+var mailgun = require('mailgun-js')({apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN});
+var mailTemplate = require("./public/email/emailTemplate.js");
 
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-
 app.post('/', (req, res) => {
- let results = req.body.results;
+  let results = req.body.results;
 
   var data = {
     from: `Wage Calculator <${MAILGUN_EMAIL}>`,
     to: `${req.body.email}`,
     subject: 'Your Wage Results',
-    html: `Hello ${req.body.email}!
-    <p>You had requested the results of your expected earnings to be sent to your email!</p>
-    <table style="width:500px;">
-      <thead>
-        <tr>
-          <th></th>
-          <th style="text-align:right;">Hours Worked</th>
-          <th style="text-align:right;">Total Earnings</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Weekly</td>
-          <td style="text-align:right;">${results.week.hours}</td>
-          <td style="text-align:right;">${results.week.earnings}</td>
-        </tr>
-        <tr>
-          <td>Monthly</td>
-          <td style="text-align:right;">${results.month.hours}</td>
-          <td style="text-align:right;">${results.month.earnings}</td>
-        </tr>
-        <tr>
-          <td>Yearly</td>
-          <td style="text-align:right;">${results.year.hours}</td>
-          <td style="text-align:right;">${results.year.earnings}</td>
-        </tr>
-      </tbody>
-    </table>
-    <br><br><br>
-    Regards,<br>
-    Wage Calculator
-    `
+    html: mailTemplate(req.body)
   };
 
   mailgun.messages().send(data, function(error, body) {
