@@ -32,4 +32,12 @@ $(document).ready(function () {
       $yearRow.find(".earnings").text(`$${$yearlyEarnings.toFixed(2)}`);
     }
   });
+
+  $('#email-submit').on('click', function(event){
+    event.preventDefault();
+    alert($('#email-input').val());
+    $('#email-input').val('');
+    // alert('Clicked!');
+  });
+
 });
