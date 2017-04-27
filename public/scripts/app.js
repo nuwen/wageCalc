@@ -13,14 +13,17 @@ $(document).ready(function() {
     let $monthRow = $(".monthlyTR");
     let $yearRow = $(".yearlyTR");
 
-    if (!$wage || (wage > 40)) {
+    if (!$wage || ($wage > 40)) {
       $('.wage-alert').slideDown(500);
     }
-    if (!$hours || (hours > 80)) {
+    if (!$hours || ($hours > 80)) {
       $('.hours-alert').slideDown(500);
     }
 
     if ($wage && $hours) {
+      $('.wage-alert').slideUp(500);
+      $('.hours-alert').slideUp(500);
+
 
       $weekRow.find(".hours").text($hours);
       $monthRow.find(".hours").text($hours * 4);

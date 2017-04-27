@@ -21,6 +21,8 @@ $(document).ready(function() {
 
     if ($email && ($wage && $hours)) {
 
+      $('.email-alert').slideUp(500);
+
       let $weekRow = $(".weeklyTR");
       let $monthRow = $(".monthlyTR");
       let $yearRow = $(".yearlyTR");
