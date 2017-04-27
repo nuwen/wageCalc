@@ -17,6 +17,7 @@ If you don't want to use your own email to test you can use https://www.mailinat
 #### To run this app
 Simply go into root direct your app and run
 ```
+$ npm install
 $ node index.js
 ```
 
