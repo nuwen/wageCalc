@@ -22,6 +22,7 @@ Simply go into root directory of the app and run
 $ npm install
 $ node index.js
 ```
+And go to localhost:8080 in Chrome
 
 #### Tech Stack Used
 
