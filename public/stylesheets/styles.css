@@ -1,23 +1,44 @@
-th{
+th {
   text-align: right;
 }
 
-td.hours{
+td.hours {
   text-align: right;
 }
 
-td.earnings{
+td.earnings {
   text-align: right;
 }
 
-#calculate-submit{
-  float:right;
+#calculate-submit {
+  float: right;
 }
 
-div.alert{
-  display:none;
+div.alert {
+  display: none;
   cursor: pointer;
 }
-div.alert:hover{
+
+div.alert:hover {
   opacity: .8;
+}
+
+.email-text {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 350px;
+    margin: 30px auto;
+  }
+}
+
+.modal-dialog{
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
 }
