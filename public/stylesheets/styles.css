@@ -17,4 +17,8 @@ td.earnings{
 
 div.alert{
   display:none;
+  cursor: pointer;
+}
+div.alert:hover{
+  opacity: .9;
 }

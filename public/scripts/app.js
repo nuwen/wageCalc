@@ -13,12 +13,11 @@ $(document).ready(function() {
     let $monthRow = $(".monthlyTR");
     let $yearRow = $(".yearlyTR");
 
-    if (!$wage) {
-      $('.wage-alert').slideToggle(500);
-      // alert("Please Enter a valid Wage");
+    if (!$wage || (wage > 40)) {
+      $('.wage-alert').slideDown(500);
     }
-    if (!$hours) {
-      $('.hours-alert').slideToggle(500);
+    if (!$hours || (hours > 80)) {
+      $('.hours-alert').slideDown(500);
     }
 
     if ($wage && $hours) {
@@ -35,63 +34,6 @@ $(document).ready(function() {
 
   $('div.alert').on('click', function(){
     $(this).slideToggle(500);
-  });
-
-  $('#email-submit').on('click', function(event) {
-    event.preventDefault();
-
-    let $email = $("#email-input").val();
-    let $wage = $('#wage-input').val();
-    let $hours = $('#hours-input').val();
-
-    if (!$email){
-      $('.email-alert').slideToggle(500);
-    }
-
-    if (!$wage || !$hours){
-      // alert('Fill in your information first!');
-    }
-
-    if ($email && ($wage && $hours)) {
-
-      let $weekRow = $(".weeklyTR");
-      let $monthRow = $(".monthlyTR");
-      let $yearRow = $(".yearlyTR");
-
-      let $weekHours = $weekRow.find(".hours").text();
-      let $monthlyHours = $monthRow.find(".hours").text();
-      let $yearlyHours = $yearRow.find(".hours").text();
-
-      let $weeklyEarnings = $weekRow.find(".earnings").text();
-      let $monthlyEarnings = $monthRow.find(".earnings").text();
-      let $yearlyEarnings = $yearRow.find(".earnings").text();
-
-      let results = {
-        week: {
-          hours: $weekHours,
-          earnings: $weeklyEarnings
-        },
-        month: {
-          hours: $monthlyHours,
-          earnings: $monthlyEarnings
-        },
-        year: {
-          hours: $yearlyHours,
-          earnings: $yearlyEarnings
-        }
-      }
-
-      $.ajax({
-        method: 'POST',
-        url: '/',
-        data: {
-          email: $email,
-          results: results
-        }
-      })
-      alert($('#email-input').val());
-      $('#email-input').val('');
-    }
   });
 
 });
