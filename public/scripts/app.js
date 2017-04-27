@@ -64,6 +64,8 @@ $(document).ready(function() {
       $weekRow.find(".earnings").text(`$${$weeklyEarnings.toFixed(2)}`);
       $monthRow.find(".earnings").text(`$${$monthlyEarnings.toFixed(2)}`);
       $yearRow.find(".earnings").text(`$${$yearlyEarnings.toFixed(2)}`);
+
+      $('.results-container').slideDown(500);
     }
   });
 

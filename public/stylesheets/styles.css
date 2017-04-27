@@ -1,3 +1,7 @@
+body {
+  padding-left:25%;
+  padding-right:25%;
+}
 th {
   text-align: right;
 }
@@ -42,4 +46,8 @@ div.alert:hover {
   top: 30%;
   transform: translate(-50%, -50%);
   z-index: 5;
+}
+
+.results-container{
+  display: none;
 }

@@ -16,7 +16,7 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
 
-const MAILGUN_EMAIL = process.env.MAILGUN_EMAIL_SERVER;
+const MAILGUN_SMTP = process.env.MAILGUN_SMTP;
 const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY;
 const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN;
 
@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
 
   var data = {
-    from: `Wage Calculator <${MAILGUN_EMAIL}>`,
+    from: `Wage Calculator <${MAILGUN_SMTP}>`,
     to: `${req.body.email}`,
     subject: 'Your Wage Results',
     html: mailTemplate(req.body)
