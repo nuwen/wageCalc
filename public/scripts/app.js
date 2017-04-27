@@ -76,8 +76,7 @@ $(document).ready(function () {
       }
     })
     alert($('#email-input').val());
-    // $('#email-input').val('');
-    // alert('Clicked!');
+    $('#email-input').val('');
   });
 
 });
