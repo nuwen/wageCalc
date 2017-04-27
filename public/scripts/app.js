@@ -6,6 +6,13 @@ $(document).ready(function () {
 
     let $wage = $('#wage-input').val();
     let $hours = $('#hours-input').val();
+    let $weeklyEarnings = $wage * $hours;
+    let $monthlyEarnings = $weeklyEarnings * 4;
+    let $yearlyEarnings = $weeklyEarnings * 52;
+
+    let $weekRow = $(".weeklyTR");
+    let $monthRow = $(".monthlyTR");
+    let $yearRow = $(".yearlyTR");
 
     if(!$wage){
       alert("Please Enter a valid Wage");
@@ -14,14 +21,8 @@ $(document).ready(function () {
       alert("Please Enter a valid number of Hours");
     }
 
-    if( $wage && $hours){
-      let $weeklyEarnings = $wage * $hours;
-      let $monthlyEarnings = $weeklyEarnings * 4;
-      let $yearlyEarnings = $weeklyEarnings * 52;
+    if($wage && $hours){
 
-      let $weekRow = $(".weeklyTR");
-      let $monthRow = $(".monthlyTR");
-      let $yearRow = $(".yearlyTR");
 
       $weekRow.find(".hours").text($hours);
       $monthRow.find(".hours").text($hours * 4);
@@ -35,8 +36,47 @@ $(document).ready(function () {
 
   $('#email-submit').on('click', function(event){
     event.preventDefault();
+
+    let $email = $("#email-input").val();
+
+    let $weekRow = $(".weeklyTR");
+    let $monthRow = $(".monthlyTR");
+    let $yearRow = $(".yearlyTR");
+
+    let $weekHours = $weekRow.find(".hours").text();
+    let $monthlyHours = $monthRow.find(".hours").text();
+    let $yearlyHours = $yearRow.find(".hours").text();
+
+    let $weeklyEarnings = $weekRow.find(".earnings").text();
+    let $monthlyEarnings = $monthRow.find(".earnings").text();
+    let $yearlyEarnings = $yearRow.find(".earnings").text();
+
+    let results = {
+      week: {
+        hours: $weekHours,
+        earnings: $weeklyEarnings
+      },
+      month: {
+        hours: $monthlyHours,
+        earnings: $monthlyEarnings
+      },
+      year: {
+        hours: $yearlyHours,
+        earnings: $yearlyEarnings
+      }
+    }
+    console.log(results);
+
+    $.ajax({
+      method: 'POST',
+      url: '/',
+      data: {
+        email: $email,
+        results: results
+      }
+    })
     alert($('#email-input').val());
-    $('#email-input').val('');
+    // $('#email-input').val('');
     // alert('Clicked!');
   });
 
