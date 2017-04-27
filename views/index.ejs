@@ -5,20 +5,60 @@
 <head>
   <title>Earnings Calculator</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-gv0oNvwnqzF6ULI9TVsSmnULNb3zasNysvWwfT/s4l8k5I+g6oFz9dye0wg3rQ2Q" crossorigin="anonymous">
-
+  <link href="./stylesheets/styles.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="padding-left:10%; padding-right:10%">
   <% include ./partials/_navbar.ejs %>
 
-  <h1>Hello World</h1>
-  <form>
-    <label>Your Wage</label>
-    <input type="number" placeholder="Wage" id="wage-input">
-    <label>Hours Worked Per Week</label>
-    <input type="number" placeholder="Hours" id="hours-input">
-    <input type="submit" value="Calculate" id="calculate-submit">
-  </form>
+    <h1>Hello World</h1>
+    <div class="form-container panel panel-default">
+      <div class="panel-heading">Panel heading</div>
+      <form>
+        <div class="form-group">
+          <label>Your Wage</label>
+          <input type="number" placeholder="0.00" id="wage-input" class="form-control" min="0.00" step="0.01" pattern="^\d+(?:\.\d{1,2})?$">
+        </div>
+        <div class="form-group">
+          <label>Hours Worked Per Week</label>
+          <input type="number" placeholder="0" id="hours-input" class="form-control" min="0" step="0.00">
+        </div>
+        <input type="submit" value="Calculate" id="calculate-submit" class="btn btn-default">
+      </form>
+    </div>
+
+
+    <div class="results-container panel panel-default">
+      <div class="panel-heading">Panel heading</div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Hours Worked</th>
+            <th>Total Earnings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="weeklyTR">
+            <td>Weekly</td>
+            <td class="hours">0</td>
+            <td class="earnings">$0.00</td>
+          </tr>
+          <tr class="monthlyTR">
+            <td>Monthly</td>
+            <td class="hours">0</td>
+            <td class="earnings">$0.00</td>
+          </tr>
+          <tr class="yearlyTR">
+            <td>Yearly</td>
+            <td class="hours">0</td>
+            <td class="earnings">$0.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
 
 
 
