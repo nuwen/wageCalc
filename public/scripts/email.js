@@ -48,16 +48,18 @@ $(document).ready(function() {
           hours: $yearlyHours,
           earnings: $yearlyEarnings
         }
-      }
+      };
 
       $.ajax({
         method: 'POST',
         url: '/',
         data: {
           email: $email,
+          wage: $wage,
+          hours: $hours,
           results: results
         }
-      })
+      });
 
       $(".modal-dialog").fadeToggle("slow", "linear")
       .delay(500).fadeToggle("slow", "linear");

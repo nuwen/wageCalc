@@ -1,4 +1,32 @@
+function validWage(wage){
+  if(wage <= 0){
+    return false;
+  }
+  if (wage > 40){
+    return false;
+  }
+  if(!wage){
+    return false;
+  }
+  return true;
+}
+
+function validHours(hours){
+  if(hours <= 0){
+    return false;
+  }
+  if (hours > 80){
+    return false;
+  }
+  if(!hours){
+    return false;
+  }
+  return true;
+}
+
 $(document).ready(function() {
+
+
 
   $('#calculate-submit').on('click', function(event) {
     event.preventDefault();
@@ -13,14 +41,18 @@ $(document).ready(function() {
     let $monthRow = $(".monthlyTR");
     let $yearRow = $(".yearlyTR");
 
-    if (!$wage || ($wage > 40)) {
+    if (!validWage($wage)) {
       $('.wage-alert').slideDown(500);
+    } else {
+      $('.wage-alert').slideUp(500);
     }
-    if (!$hours || ($hours > 80)) {
+    if (!validHours($hours)) {
       $('.hours-alert').slideDown(500);
+    } else {
+      $('.hours-alert').slideUp(500);
     }
 
-    if ($wage && $hours) {
+    if (validWage($wage) && validHours($hours)) {
       $('.wage-alert').slideUp(500);
       $('.hours-alert').slideUp(500);
 

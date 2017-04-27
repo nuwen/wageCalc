@@ -14,6 +14,13 @@ MAILGUN_DOMAIN = YOUR_DOMAIN
 
 If you don't want to use your own email to test you can use https://www.mailinator.com/ to test receiving emails, you will however still have to add their provided email address as an authorized recipient.
 
+#### To run this app
+Simply go into root direct your app and run
+```
+$ npm install
+$ node index.js
+```
+
 #### Tech Stack Used
 
 1. ExpressJS
