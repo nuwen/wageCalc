@@ -1,8 +1,7 @@
+$(document).ready(function() {
 
-$(document).ready(function () {
   $('#calculate-submit').on('click', function(event) {
     event.preventDefault();
-
 
     let $wage = $('#wage-input').val();
     let $hours = $('#hours-input').val();
@@ -14,15 +13,14 @@ $(document).ready(function () {
     let $monthRow = $(".monthlyTR");
     let $yearRow = $(".yearlyTR");
 
-    if(!$wage){
+    if (!$wage) {
       alert("Please Enter a valid Wage");
     }
-    if(!$hours){
+    if (!$hours) {
       alert("Please Enter a valid number of Hours");
     }
 
-    if($wage && $hours){
-
+    if ($wage && $hours) {
 
       $weekRow.find(".hours").text($hours);
       $monthRow.find(".hours").text($hours * 4);
@@ -34,49 +32,61 @@ $(document).ready(function () {
     }
   });
 
-  $('#email-submit').on('click', function(event){
+  $('#email-submit').on('click', function(event) {
     event.preventDefault();
 
     let $email = $("#email-input").val();
+    let $wage = $('#wage-input').val();
+    let $hours = $('#hours-input').val();
 
-    let $weekRow = $(".weeklyTR");
-    let $monthRow = $(".monthlyTR");
-    let $yearRow = $(".yearlyTR");
-
-    let $weekHours = $weekRow.find(".hours").text();
-    let $monthlyHours = $monthRow.find(".hours").text();
-    let $yearlyHours = $yearRow.find(".hours").text();
-
-    let $weeklyEarnings = $weekRow.find(".earnings").text();
-    let $monthlyEarnings = $monthRow.find(".earnings").text();
-    let $yearlyEarnings = $yearRow.find(".earnings").text();
-
-    let results = {
-      week: {
-        hours: $weekHours,
-        earnings: $weeklyEarnings
-      },
-      month: {
-        hours: $monthlyHours,
-        earnings: $monthlyEarnings
-      },
-      year: {
-        hours: $yearlyHours,
-        earnings: $yearlyEarnings
-      }
+    if (!$email){
+      alert('Enter an email first!');
     }
-    console.log(results);
 
-    $.ajax({
-      method: 'POST',
-      url: '/',
-      data: {
-        email: $email,
-        results: results
+    if (!$wage || !$hours){
+      alert('Fill in your information first!');
+    }
+
+    if ($email && ($wage && $hours)) {
+
+      let $weekRow = $(".weeklyTR");
+      let $monthRow = $(".monthlyTR");
+      let $yearRow = $(".yearlyTR");
+
+      let $weekHours = $weekRow.find(".hours").text();
+      let $monthlyHours = $monthRow.find(".hours").text();
+      let $yearlyHours = $yearRow.find(".hours").text();
+
+      let $weeklyEarnings = $weekRow.find(".earnings").text();
+      let $monthlyEarnings = $monthRow.find(".earnings").text();
+      let $yearlyEarnings = $yearRow.find(".earnings").text();
+
+      let results = {
+        week: {
+          hours: $weekHours,
+          earnings: $weeklyEarnings
+        },
+        month: {
+          hours: $monthlyHours,
+          earnings: $monthlyEarnings
+        },
+        year: {
+          hours: $yearlyHours,
+          earnings: $yearlyEarnings
+        }
       }
-    })
-    alert($('#email-input').val());
-    $('#email-input').val('');
+
+      $.ajax({
+        method: 'POST',
+        url: '/',
+        data: {
+          email: $email,
+          results: results
+        }
+      })
+      alert($('#email-input').val());
+      $('#email-input').val('');
+    }
   });
 
 });

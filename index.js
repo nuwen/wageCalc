@@ -30,8 +30,6 @@ app.get('/', (req, res) => {
 
 
 app.post('/', (req, res) => {
-
- console.log(req.body);
  let results = req.body.results;
 
   var data = {
@@ -71,7 +69,6 @@ app.post('/', (req, res) => {
     Wage Calculator
     `
   };
-  console.log(data);
 
   mailgun.messages().send(data, function(error, body) {
     console.log('error', error);

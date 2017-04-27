@@ -3,17 +3,17 @@
 <html>
 
 <head>
-  <title>Earnings Calculator</title>
+  <title>Wage Calculator</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-gv0oNvwnqzF6ULI9TVsSmnULNb3zasNysvWwfT/s4l8k5I+g6oFz9dye0wg3rQ2Q" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link href="./stylesheets/styles.css" rel="stylesheet">
 </head>
 
 <body style="padding-left:10%; padding-right:10%">
   <% include ./partials/_navbar.ejs %>
 
-    <h1>Hello World</h1>
     <div class="form-container panel panel-default">
-      <div class="panel-heading">Panel heading</div>
+      <div class="panel-heading">Your Info</div>
       <form class="panel-body">
         <div class="form-group">
           <label>Your Wage</label>
@@ -23,13 +23,12 @@
           <label>Hours Worked Per Week</label>
           <input type="number" placeholder="0" id="hours-input" class="form-control" min="0" step="0.00">
         </div>
-        <button id="calculate-submit" class="btn btn-default">Calculate</button>
+        <button id="calculate-submit" class="btn btn-default"><i class="fa fa-calculator" aria-hidden="true"></i>  Calculate</button>
       </form>
     </div>
 
-
     <div class="results-container panel panel-default">
-      <div class="panel-heading">Panel heading</div>
+      <div class="panel-heading">Results</div>
 
       <table class="table table-striped">
         <thead>
@@ -62,7 +61,7 @@
           <div class="input-group">
             <input type="email" placeholder="Your E-mail" id="email-input" class="form-control">
             <span class="input-group-btn">
-          <button id="email-submit" class="btn btn-default">Forward Results to Email?</button>
+          <button id="email-submit" class="btn btn-default"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Email Results</button>
         </span>
           </div>
         </form>
