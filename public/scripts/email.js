@@ -55,6 +55,8 @@ $(document).ready(function() {
         url: '/',
         data: {
           email: $email,
+          wage: $wage,
+          hours: $hours,
           results: results
         }
       });

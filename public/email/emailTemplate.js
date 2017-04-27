@@ -3,6 +3,9 @@ module.exports = function(body){
 
   let email = `Hello ${body.email}!
   <p>You had requested the results of your expected earnings to be sent to your email!</p>
+  <br><br><br>
+  <strong>Your Hourly Rate: ${body.wage}</strong>
+  <strong>Your Weekly Hours: ${body.hours}</strong>
   <table style="width:500px;">
     <thead>
       <tr>
