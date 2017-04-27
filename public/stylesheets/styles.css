@@ -1,0 +1,23 @@
+th{
+  text-align: right;
+}
+
+td.hours{
+  text-align: right;
+}
+
+td.earnings{
+  text-align: right;
+}
+
+#calculate-submit{
+  float:right;
+}
+
+div.alert{
+  display:none;
+  cursor: pointer;
+}
+div.alert:hover{
+  opacity: .8;
+}
